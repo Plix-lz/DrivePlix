@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMFY92HD3T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMFY92HD3T');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Player1 | Generador de URLs</title>
+  <title>LzPlay</title>
   <link rel="stylesheet" href="css/generator.css" />
 </head>
 <body>
@@ -11,7 +20,7 @@
     <header>
       <div class="brand">
         <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 14.5v-9l7 4.5-7 4.5z"/></svg>
-        Player1
+        LzPlay
       </div>
       <h1>Generador de URLs del reproductor</h1>
       <p class="lead">
@@ -119,6 +128,15 @@
           <div class="actions">
             <button type="button" class="btn-ghost" id="btnCopyIframe">Copiar iframe</button>
           </div>
+
+          <div class="embed-code">
+            <label for="fbDescription">Descripción para Facebook</label>
+            <textarea id="fbDescription" readonly placeholder="Al elegir un título en TMDB se generará aquí la descripción lista para publicar..."></textarea>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn-primary" id="btnCopyFb">Copiar descripción</button>
+          </div>
+          <p class="hint">Cópiala y pégala al publicar en Facebook.</p>
         </div>
       </section>
     </div>
