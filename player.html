@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" prefix="og: https://ogp.me/ns#">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMFY92HD3T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMFY92HD3T');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>Player1 | Reproductor</title>
+  <meta name="apple-mobile-web-app-title" content="LzPlay" />
+  <title>LzPlay</title>
+
+  <!-- Open Graph / redes sociales (se actualizan con el contenido de la URL) -->
+  <meta property="og:site_name" content="LzPlay" />
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" id="metaOgTitle" content="LzPlay" />
+  <meta property="og:description" id="metaOgDesc" content="Estas Mirando: en LzPlay" />
+  <meta property="og:image" id="metaOgImage" content="" />
+  <meta property="og:image:alt" id="metaOgImageAlt" content="LzPlay" />
+  <meta property="og:url" id="metaOgUrl" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="metaTwTitle" content="LzPlay" />
+  <meta name="twitter:description" id="metaTwDesc" content="Estas Mirando: en LzPlay" />
+  <meta name="twitter:image" id="metaTwImage" content="" />
+  <link rel="image_src" id="metaImageSrc" href="" />
+  <link rel="canonical" id="metaCanonical" href="" />
+
+  <script>
+    /* Actualiza meta/título lo antes posible para previews de compartir */
+    (function () {
+      function getParam(name) {
+        try {
+          return new URLSearchParams(window.location.search).get(name) || "";
+        } catch (e) {
+          return "";
+        }
+      }
+      function decodeBase64Utf8(value) {
+        if (!value) return "";
+        try {
+          var binary = atob(value.replace(/-/g, "+").replace(/_/g, "/"));
+          try {
+            return decodeURIComponent(
+              Array.prototype.map
+                .call(binary, function (c) {
+                  return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+                })
+                .join("")
+            );
+          } catch (e) {
+            return binary;
+          }
+        } catch (e) {
+          return value;
+        }
+      }
+      function setMeta(id, attr, value) {
+        var el = document.getElementById(id);
+        if (!el || !value) return;
+        el.setAttribute(attr, value);
+      }
+      var title = decodeBase64Utf8(getParam("title")) || getParam("name") || "LzPlay";
+      var image =
+        decodeBase64Utf8(getParam("poster")) ||
+        getParam("img") ||
+        getParam("image") ||
+        "";
+      var pageUrl = window.location.href.split("#")[0];
+      var desc = "Estas Mirando: " + (title !== "LzPlay" ? title : "en LzPlay");
+
+      document.title = "LzPlay";
+      setMeta("metaOgTitle", "content", title);
+      setMeta("metaOgDesc", "content", desc);
+      setMeta("metaOgUrl", "content", pageUrl);
+      setMeta("metaOgImageAlt", "content", title);
+      setMeta("metaTwTitle", "content", title);
+      setMeta("metaTwDesc", "content", desc);
+      setMeta("metaCanonical", "href", pageUrl);
+      if (image) {
+        setMeta("metaOgImage", "content", image);
+        setMeta("metaTwImage", "content", image);
+        setMeta("metaImageSrc", "href", image);
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="css/player.css" />
 </head>
 <body>
